@@ -158,6 +158,35 @@ function toggleLang() {
   </div>
 </section>
 
+<section class="install" style="padding: 60px 0;">
+  <div class="container" style="text-align: center;">
+    <h2>☕</h2>
+    <p style="margin-bottom: 16px; color: #555;">Enjoying QuickAccess? Buy me an espresso!</p>
+    <div id="coffee-game" style="display:inline-block;position:relative;width:80px;height:100px;cursor:pointer;" onclick="pourCoffee()">
+      <div style="width:60px;height:70px;border:3px solid #333;border-radius:0 0 8px 8px;margin:20px auto 0;position:relative;overflow:hidden;background:#fff;">
+        <div id="coffee-fill" style="position:absolute;bottom:0;width:100%;height:0%;background:linear-gradient(to top,#3d1c02,#6b3a0a);transition:height 0.5s ease;border-radius:0 0 5px 5px;"></div>
+      </div>
+      <div style="position:absolute;right:-2px;top:35px;width:16px;height:30px;border:3px solid #333;border-left:none;border-radius:0 8px 8px 0;"></div>
+    </div>
+    <p id="coffee-msg" style="margin-top: 12px; font-size: 0.8rem; color: #999;">Click the cup to pour!</p>
+    <a id="coffee-link" href="https://buymeacoffee.com/mingyupark" target="_blank" rel="noopener" style="display:none;margin-top:12px;padding:8px 20px;background:#ea580c;color:#fff;border-radius:20px;text-decoration:none;font-size:0.85rem;font-weight:600;">☕ Buy me a coffee →</a>
+  </div>
+</section>
+
+<script>
+let coffeeLevel = 0;
+function pourCoffee() {
+  coffeeLevel = Math.min(coffeeLevel + 25, 100);
+  document.getElementById('coffee-fill').style.height = coffeeLevel + '%';
+  const msgs = ['Pouring...', 'Almost there...', 'Looking good...', '☕ Full! Thanks!'];
+  document.getElementById('coffee-msg').textContent = msgs[Math.min(Math.floor(coffeeLevel/25)-1, 3)];
+  if (coffeeLevel >= 100) {
+    document.getElementById('coffee-link').style.display = 'inline-block';
+    document.getElementById('coffee-msg').textContent = 'Thanks! Here\'s how to make it real ☕';
+  }
+}
+</script>
+
 <footer>
   <div class="container">
     <p>Made by <a href="mailto:uqwe00@gmail.com">Mingyu</a> · <a href="https://github.com/milv0/QuickAccess">GitHub</a></p>

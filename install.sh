@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-VERSION="2.2.8"
+VERSION="2.2.9"
 echo "⚡ Installing QuickAccess v$VERSION..."
 cd /tmp
 curl -sL https://milv0.github.io/quickaccess-app/QuickAccess-v$VERSION.zip -o QuickAccess.zip
